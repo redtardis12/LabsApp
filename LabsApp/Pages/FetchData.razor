@@ -1,0 +1,33 @@
+﻿@page "/fetchdata"
+@inject HttpClient Http
+
+<h1>FromSoftware Shopping cart</h1>
+
+<p>Add games that you like</p>
+
+    <table class="table">
+        <tbody>
+                <tr>
+                    <td>HOT!!! Elden ring - 5999 rubs 99 cops <span><button class="btn btn-primary" @onclick="@(()=> addToCart(5999, 99))">+</button></span></td>
+                    <td>BEST!! Sekiro - 2000 rubs 99 cops <span><button class="btn btn-primary" @onclick="@(()=> addToCart(2000, 99))">+</button></span></td>
+                    <td>Dark Souls - 499 rubs 99 cops <span><button class="btn btn-primary" @onclick="@(()=> addToCart(499, 99))">+</button></span></td>
+                    <td>Dark Souls 3 - 768 rubs <span><button class="btn btn-primary" @onclick="@(()=> addToCart(768, 99))">+</button></span></td>
+                </tr>
+        </tbody>
+    </table>
+    
+    <p>Games in cart: @items</p>
+    <p>Total: @sum</p>
+
+
+@code {
+    private CP.Series cart = new CP.Series();
+    private string items = "", sum = "";
+
+    private void addToCart(int rubs, int cops)
+    {
+        cart.AddPair(new CP.Money(rubs, cops));
+        items = cart.Print();
+        sum = cart.SumMoney();
+    }
+}

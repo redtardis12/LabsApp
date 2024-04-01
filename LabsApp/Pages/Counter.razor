@@ -1,0 +1,68 @@
+﻿@page "/icalc"
+
+<h1>Counter</h1>
+
+<div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>First Number</p>
+        </div>
+        <div class="col-sm-4">
+            <input placeholder="Enter First Number" @bind-value="real1" />
+            <input placeholder="Enter First Number" @bind-value="im1" />
+            <span>i</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Second Number</p>
+        </div>
+        <div class="col-sm-4">
+            <input placeholder="Enter First Number" @bind-value="real2" />
+            <input placeholder="Enter First Number" @bind-value="im2" />
+            <span>i</span>
+        </div>
+    </div>
+</div>
+
+<p>@finale</p>
+
+<button class="btn btn-primary" @onclick="isum">+</button>
+<button class="btn btn-primary" @onclick="isub">-</button>
+<button class="btn btn-primary" @onclick="imul">*</button>
+<button class="btn btn-primary" @onclick="idiv">/</button>
+
+@code {
+
+    private string finale = "";
+    private string real1, im1, real2, im2;
+
+    private void isum()
+    {
+        CP.Complex complex1 = new CP.Complex(Int32.Parse(real1), Int32.Parse(im1));
+        CP.Complex complex2 = new CP.Complex(Int32.Parse(real2), Int32.Parse(im2));
+        finale = complex1.Add(complex2).Print();
+    }
+
+    private void isub()
+    {
+        CP.Complex complex1 = new CP.Complex(Int32.Parse(real1), Int32.Parse(im1));
+        CP.Complex complex2 = new CP.Complex(Int32.Parse(real2), Int32.Parse(im2));
+        finale = complex1.Subtract(complex2).Print();
+    }
+
+    private void imul()
+    {
+        CP.Complex complex1 = new CP.Complex(Int32.Parse(real1), Int32.Parse(im1));
+        CP.Complex complex2 = new CP.Complex(Int32.Parse(real2), Int32.Parse(im2));
+        finale = complex1.Multiply(complex2).Print();
+    }
+
+    private void idiv()
+    {
+        CP.Complex complex1 = new CP.Complex(Int32.Parse(real1), Int32.Parse(im1));
+        CP.Complex complex2 = new CP.Complex(Int32.Parse(real2), Int32.Parse(im2));
+        finale = complex1.Divide(complex2).Print();
+    }
+}
