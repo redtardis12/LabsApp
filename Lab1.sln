@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complexity", "Complexity\Complexity.csproj", "{BA598B84-E52C-482C-8C81-DF4930571736}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexityTest", "ComplexityTest\ComplexityTest.csproj", "{CF48CC00-A462-4A31-A5F4-E6F59C250929}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA598B84-E52C-482C-8C81-DF4930571736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA598B84-E52C-482C-8C81-DF4930571736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA598B84-E52C-482C-8C81-DF4930571736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA598B84-E52C-482C-8C81-DF4930571736}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF48CC00-A462-4A31-A5F4-E6F59C250929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF48CC00-A462-4A31-A5F4-E6F59C250929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF48CC00-A462-4A31-A5F4-E6F59C250929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF48CC00-A462-4A31-A5F4-E6F59C250929}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C201C5F7-A941-43F5-A135-C0E0D227A7ED}
+	EndGlobalSection
+EndGlobal

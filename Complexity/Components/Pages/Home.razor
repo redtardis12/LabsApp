@@ -1,0 +1,97 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+@code {
+    private ComplexNumber z1 = new ComplexNumber(0, 0);
+    private ComplexNumber z2 = new ComplexNumber(0, 0);
+    private ComplexNumber result = new ComplexNumber(0, 0);
+    private string operation = "Add";
+    private string resultString = "";
+    private bool showResult = false;
+
+    private void Calculate()
+    {
+        Console.WriteLine($"Selected operation: {operation}");
+        Console.WriteLine($"z1: {z1.Real} + {z1.Imaginary}i");
+        Console.WriteLine($"z2: {z2.Real} + {z2.Imaginary}i");
+        switch (operation)
+        {
+            case "Add":
+                result = z1.Add(z2);
+                break;
+            case "Subtract":
+                result = z1.Subtract(z2);
+                break;
+            case "Multiply":
+                result = z1.Multiply(z2);
+                break;
+            case "Divide":
+                try
+                {
+                    result = z1.Divide(z2);
+                }
+                catch (DivideByZeroException)
+                {
+                    resultString = "Деление на ноль невозможно!";
+                    showResult = false;
+                    return;
+                }
+                break;
+        }
+        resultString = result.ToString();
+        showResult = true;
+        Console.WriteLine($"Result calculated: {resultString}");
+    }
+}
+
+<div class="calculator">
+    <h3>Комплексный калькулятор</h3>
+    <div>
+        <label>Первое комплексное число:</label>
+        <input placeholder="Действительная часть" type="number" @bind="z1.Real" />
+        <input placeholder="Мнимая часть" type="number" @bind="z1.Imaginary" />
+    </div>
+    <div>
+        <label>Второе комплексное число:</label>
+        <input placeholder="Действительная часть" type="number" @bind="z2.Real" />
+        <input placeholder="Мнимая часть" type="number" @bind="z2.Imaginary" />
+    </div>
+    <div>
+        <label>Операция:</label>
+        <select @bind="operation">
+            <option value="Add">Сложение</option>
+            <option value="Subtract">Вычитание</option>
+            <option value="Multiply">Умножение</option>
+            <option value="Divide">Деление</option>
+        </select>
+    </div>
+    <button @onclick="Calculate">Вычислить</button>
+
+    @if (showResult)
+    {
+        <div>
+            <h4>Результат:</h4>
+            <p>@resultString</p>
+        </div>
+    }
+</div>
+
+<style>
+    .calculator {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .calculator div {
+        margin-bottom: 10px;
+    }
+    .calculator input {
+        width: 90px;
+        margin-right: 5px;
+    }
+    .calculator button {
+        margin-top: 10px;
+    }
+</style>
